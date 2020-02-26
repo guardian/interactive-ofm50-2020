@@ -1,0 +1,476 @@
+@import "mq";
+@import "fonts";
+@import "palette";
+
+// Uncomment for embeds
+//@import "embed";
+// Uncomment for full screen (including immersive article main media)
+//@import "fullscreen";
+
+$neutral: #121212;
+// $numberfont: font-family:diplay;
+
+@mixin paragraph($color) {
+  color: $color;
+  font-size: 17px;
+  line-height: 135%;
+  padding-left: 15px;
+  padding-right: 5px;
+  border-left: 1px solid #999999;
+  padding-bottom: 20px;
+  padding-top: 5px;
+}
+figure.element {
+  margin-top: 0 !important;
+}
+.element-atom,
+.interactive-atom {
+  margin: 0;
+  overflow: hidden;
+}
+
+.interactive-wrapper {
+}
+
+.ofm-contents__wrapper {
+  display: none;
+  // NAMES
+  h1 {
+    font-family: $f-titlepiece;
+    font-size: 28px;
+    line-height: 115%;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-top: 1px solid #999999;
+    color: #a1845c;
+    border-left: 1px solid #999999;
+
+    @include mq($from: desktop) {
+      font-size: 35px;
+      line-height: 115%;
+    }
+  }
+
+  p {
+    font-family: $f-serif-text;
+    @include paragraph($neutral);
+  }
+  .ofm-contents__credit {
+    // SMALL PICTURE CREDITS
+    font-family: $f-sans-serif-text;
+    @include paragraph(#a1845c);
+    font-size: 14px;
+    line-height: 135%;
+
+    @include mq($from: desktop) {
+      font-size: 14px;
+      line-height: 135%;
+    }
+  }
+
+  .content__main-column {
+    img {
+      width: 100%;
+      height: auto;
+      border-left: 1px solid #999999;
+      @include mq($from: desktop) {
+        width: 140%;
+        height: auto;
+        border-left: 1px solid #999999;
+      }
+    }
+  }
+
+  &.visible {
+    display: block;
+  }
+}
+
+.ofm-header,
+.ofm-header__people,
+.ofm-header__places,
+.ofm-header__FoodDrink,
+.ofm-header__media,
+.ofm-header__FoodTech {
+  height: 80vh;
+  position: relative;
+  overflow: hidden;
+  background-color: #121212;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+
+    h1 {
+      font-family: $f-titlepiece;
+      color: #fff;
+    }
+
+    &.animate {
+      .ofm-header__subhead .content__main-column h1::after {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+.ofm-header__headline {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+
+  .content__main-column {
+    h1 {
+      // MAIN TITLE
+      color: #ffffff;
+      line-height: normal;
+      font-size: 30px;
+      line-height: 115%;
+      background-color: #a1845c;
+      border-top: 1px solid;
+      border-color: #fff;
+      display: inline-block;
+      padding-bottom: 12px;
+
+      @include mq($from: desktop) {
+        width: 100%;
+        font-size: 50px;
+        padding-bottom: 20px;
+        padding-top: 1px;
+        border-top: 1px solid;
+        border-left: 1px solid;
+        border-right: 1px solid;
+      }
+    }
+
+    h1,
+    h2 {
+      display: inline-block;
+      font-family: $f-titlepiece;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    h2 {
+      // OFM TAG
+      background-color: #121212;
+      font-size: 20px;
+      color: #fff;
+      border-left: 0px solid;
+      border-top: 1px solid;
+      border-right: 1px solid;
+      border-bottom: 0px solid;
+      padding-bottom: 6px;
+      padding-top: 4px;
+
+      @include mq($from: desktop) {
+        font-size: 20px;
+        padding-bottom: 8px;
+        padding-top: 6px;
+        border-left: 1px solid;
+      }
+    }
+  }
+}
+
+.ofm-header__subhead {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+
+  .content__main-column {
+    h1 {
+      // PEOPLE/PLACES/ETC
+      font-family: $f-titlepiece;
+      font-size: 35px;
+      background-color: #121212;
+      display: block;
+      display: inline-block;
+      color: #fff;
+      border-left: 1px solid;
+      border-top: 1px solid;
+      border-right: 1px solid;
+      padding-left: 17px;
+      padding-right: 17px;
+      padding-bottom: 6px;
+
+      @include mq($from: desktop) {
+        font-size: 60px;
+        padding-bottom: 12px;
+      }
+
+      &::after {
+        content: "";
+        width: 25px;
+        height: 25px;
+        background-image: url(https://uploads.guim.co.uk/2020/02/12/plus-arrow-white.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: inline-block;
+        margin-left: 12px;
+        @include mq($from: desktop) {
+          width: 45px;
+          height: 45px;
+        }
+      }
+    }
+
+    h2 {
+      font-family: $f-titlepiece;
+      font-size: 70px;
+      background-color: #121212;
+      display: block;
+      color: #fff;
+      border-left: 1px solid;
+      border-top: 1px solid;
+      border-right: 1px solid;
+      padding-left: 17px;
+      padding-right: 17px;
+
+      p {
+        font-family: $f-serif-text;
+        @include paragraph($neutral);
+      }
+      .ofm-contents__credit {
+        // CREDITS
+        font-family: $f-sans-serif-text;
+        @include paragraph(#a1845c);
+      }
+    }
+  }
+}
+
+.ofm-header__intro {
+  h2 {
+    // STANDFIRST
+    font-family: $f-titlepiece;
+    font-size: 18px;
+    line-height: 22px;
+    border-left: 1px;
+    padding-top: 5px;
+    padding-left: 12px;
+    padding-right: 0px;
+    padding-bottom: 15px;
+    color: #a1845c;
+
+    @include mq($from: desktop) {
+      font-family: $f-titlepiece;
+      font-size: 25px;
+      line-height: 115%;
+      border-left: 1px;
+      padding-top: 10px;
+      padding-left: 0px;
+      padding-right: 0px;
+      padding-bottom: 18px;
+    }
+  }
+
+  h3 {
+    // BOTTON MINI CREDITS/NAMES
+    font-family: $f-sans-serif-text;
+    font-size: 15px;
+    line-height: 135%;
+    border-left: 1px;
+    padding-top: 15px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 30px;
+    a:visited {
+      color: #a1845c;
+    }
+    a:hover,
+    a:active,
+    a:focus {
+      color: #121212;
+    }
+    @include mq($from: desktop) {
+      padding-left: 0px;
+    }
+  }
+}
+
+.credit {
+  // BIG PICTURE CREDITS
+  font-family: $f-sans-serif-text;
+  font-size: 14px;
+  line-height: 115%;
+  margin-bottom: 12px;
+  padding-top: 5px;
+  padding-left: 15px;
+
+  @include mq($from: desktop) {
+    font-family: $f-sans-serif-text;
+    font-size: 15px;
+    line-height: 115%;
+    margin-bottom: 12px;
+    padding-left: 0px;
+  }
+}
+
+.carousel {
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(1.1);
+
+  &.top {
+    object-position: top;
+  }
+
+  &.visible {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+    transition: all linear 3s;
+  }
+}
+
+.content__dateline {
+  font-size: 14px;
+  padding-top: 8px;
+  padding-bottom: 20px;
+  padding-left: 15px;
+  color: #121212;
+
+  display: flex;
+  justify-content: space-between;
+  @include mq($from: desktop) {
+    padding-left: 0px;
+  }
+}
+
+.ds-meta {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-top: 1px solid #a1845c;
+  margin-bottom: 15px;
+  .meta__extras {
+    border-top: none;
+  }
+}
+
+.social-icon--facebook,
+.social-icon--twitter,
+.social-icon--email {
+  background-color: #a1845c;
+  border: 0px solid black;
+}
+
+.ios,
+.android {
+  .meta__extras {
+    display: none;
+  }
+}
+
+.previousyears {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  // border-top: 1px solid #a1845c;
+}
+
+.link2019,
+.link2018,
+.link2017 {
+  // font-family: $f-titlepiece;
+  // font-size: 50px;
+  padding-top: 10px;
+  padding-bottom: 18px;
+  height: 100%;
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  h2 {
+    // links text
+    font-family: $f-titlepiece;
+    font-size: 17px;
+    line-height: 115%;
+    padding-top: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 15px;
+    color: #a1845c;
+    @include mq($from: desktop) {
+      font-family: $f-titlepiece;
+      font-size: 25px;
+      line-height: 115%;
+      padding-top: 10px;
+      padding-left: 0px;
+      padding-right: 0px;
+      padding-bottom: 18px;
+    }
+  }
+}
+
+hr {
+  height: 1px;
+  background-color: #a1845c;
+  border: none;
+}
+
+// .content__main-column {
+//   .meta-container {
+//     display: flex!important;
+//  justify-content: space-between;
+//      border-top: 5px solid #a1845c;
+//   }
+// }
+
+// &::after {
+//   content: '';
+//   width: 25px;
+//   height: 25px;
+//   background-image: url(https://uploads.guim.co.uk/2020/02/12/plus-arrow-black.svg);
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   display: inline-block;
+//   margin-left: 12px;
+//   @include mq($from: desktop) {
+//     width: 45px;
+//     height: 45px;
+//   }
+// }
+
+// .ios, .android {
+//   .ofm-header__subhead {
+//     position: absolute;
+//     width: 100%;
+//     bottom: -20px;
+//     // margin-bottom: -20px;
+//
+//     .content__main-column {
+//
+//       h1 {
+//         // PEOPLE/PLACES/ETC
+//         font-family: $f-titlepiece;
+//         font-size: 35px;
+//         background-color: #121212;
+//         display: block;
+//         display: inline-block;
+//         color: #fff;
+//         border-left: 1px solid;
+//         border-top: 1px solid;
+//         border-right: 1px solid;
+//         padding-left: 17px;
+//         padding-right: 17px;
+//         padding-bottom: 6px;
+//
+//
+//
+// }
+//
+//
+// // .section_content {
+// //   display:none;
+// // }
+// //
+// // .open .section_content {
+// //   display:block;
+// // }
